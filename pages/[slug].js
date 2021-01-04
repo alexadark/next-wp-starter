@@ -6,7 +6,7 @@ const Page = ({ pageData = {}, slug }) => {
     initialData: pageData,
   })
 
-  return <h1>Page {data?.page?.title}</h1>
+  return <h1 className="bg-blue-300">Page {data?.page?.title}</h1>
 }
 
 export const getStaticProps = async ({ params }) => {
