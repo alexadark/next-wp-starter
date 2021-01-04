@@ -1,14 +1,20 @@
 import Head from "next/head"
 import { requestAllPosts } from "@/lib/api"
 import Link from "next/link"
+import { useQuery } from "react-query"
 
 const Blog = ({ posts = {} }) => {
+  const { data } = useQuery(["posts"], requestAllPosts, {
+    initialData: posts,
+    // refetchInterval: 1000,
+  })
+  console.log("data", data)
   return (
     <ul>
-      {posts.map((post) => (
+      {data?.posts?.nodes?.map((post) => (
         <li>
-          <Link href={`posts/${post.slug}`}>
-            <a>{post.title}</a>
+          <Link href={`posts/${post?.slug}`}>
+            <a>{post?.title}</a>
           </Link>
         </li>
       ))}
@@ -21,7 +27,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      posts: data.posts.nodes,
+      posts: data,
     },
     revalidate: 1,
   }

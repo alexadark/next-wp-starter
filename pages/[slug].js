@@ -1,8 +1,12 @@
 import { requestPage, requestAllPageSlugs } from "@/lib/api"
+import { useQuery } from "react-query"
 
-const Page = ({ page = {}, slug }) => {
-  console.log("page", page)
-  return <h1>Page {page?.title}</h1>
+const Page = ({ pageData = {}, slug }) => {
+  const { data } = useQuery(["page", slug], () => requestPage(slug), {
+    initialData: pageData,
+  })
+
+  return <h1>Page {data?.page?.title}</h1>
 }
 
 export const getStaticProps = async ({ params }) => {
@@ -10,7 +14,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      page: data,
+      pageData: data,
       slug: params.slug,
     },
     revalidate: 1,

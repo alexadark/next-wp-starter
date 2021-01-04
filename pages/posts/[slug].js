@@ -1,24 +1,20 @@
 import { requestPost, requestAllPostSlugs } from "@/lib/api"
-import { QueryClient, useQuery } from "react-query"
-import { dehydrate } from "react-query/hydration"
+import { useQuery } from "react-query"
 
-const Post = (props) => {
-  console.log("props", props)
-  const { data } = useQuery("posts", requestPost(props.slug))
-  console.log("data", data)
-  return <div>post</div>
+const Post = ({ postData = {}, slug }) => {
+  const { data } = useQuery(["post", slug], () => requestPost(slug), {
+    initialData: postData,
+  })
+
+  return <div>{data?.post?.title}</div>
 }
 
 export const getStaticProps = async ({ params }) => {
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery("posts", requestPost(params.slug))
-  //   const data = await requestPost(params.slug)
-  //   console.log("params", params)
+  const data = await requestPost(params.slug)
 
   return {
     props: {
-      //   post: data,
-      dehydratedState: dehydrate(queryClient),
+      postData: data,
       slug: params.slug,
     },
     revalidate: 1,
