@@ -1,21 +1,33 @@
-import { requestPost, requestAllPostSlugs } from "@/lib/api"
+import {
+  requestPost,
+  requestAllPostSlugs,
+  requestMenus,
+  requestHeaderFooter,
+} from "@/lib/api"
 import { useQuery } from "react-query"
+import { Layout } from "@/components/Layout"
 
-const Post = ({ postData = {}, slug }) => {
+const Post = ({ postData = {}, layoutData = {}, slug }) => {
   const { data } = useQuery(["post", slug], () => requestPost(slug), {
     initialData: postData,
   })
 
-  return <div>{data?.post?.title}</div>
+  return <Layout layoutData={layoutData}>{data?.post?.title}</Layout>
 }
 
 export const getStaticProps = async ({ params }) => {
-  const data = await requestPost(params.slug)
+  const postData = await requestPost(params.slug)
+  const menusData = await requestMenus()
+  const headerFooterData = await requestHeaderFooter()
 
   return {
     props: {
-      postData: data,
+      postData,
       slug: params.slug,
+      layoutData: {
+        menusData,
+        headerFooterData,
+      },
     },
     revalidate: 1,
   }

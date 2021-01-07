@@ -2,7 +2,7 @@
 
 // const lighten = (clr, val) => Color(clr).lighten(val).rgb().string()
 // const darken = (clr, val) => Color(clr).darken(val).rgb().string()
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors")
 
 const {
   blueGray,
@@ -54,31 +54,31 @@ module.exports = {
   bg,
   text,
   /* header */
-  headerBg: 'white',
+  headerBg: "white",
   headerColor: ultraDark,
   /* footer */
-  footerBg: 'white',
+  footerBg: "white",
   footerColor: ultraDark,
   /* search */
-  searchBg: 'white',
+  searchBg: "white",
   searchResultsHeaderBg: ultraDark,
   searchResultsHeaderColor: primary,
   searchResultsBg: bg,
   searchResultsColor: text,
   /* menu */
-  mobileMenuBg: 'black',
+  mobileMenuBg: "black",
   mobileMenuColor: light,
-  subMenuBg: 'black',
-  subMenucolor: 'white',
+  subMenuBg: "black",
+  subMenucolor: "white",
   /* newsletter */
-  nlButtonBg: 'black',
-  nlButtonColor: 'white',
+  nlButtonBg: "black",
+  nlButtonColor: "white",
   nlInputBg: light,
   /* post */
-  archiveTitleBg: 'black',
+  archiveTitleBg: "black",
   infoBg: light,
   archiveTitleBg: blueGray[100],
-  cardBg: 'white',
+  cardBg: "white",
 
   modes: {
     dark: {
@@ -98,13 +98,13 @@ module.exports = {
       searchResultsBg: bg,
       searchResultsColor: text,
       /* menu*/
-      mobileMenuBg: 'black',
+      mobileMenuBg: "black",
       mobileMenuColor: light,
       subMenuBg: primary,
-      subMenucolor: 'white',
+      subMenucolor: "white",
       /* newsletter */
       nlButtonBg: primary,
-      nlButtonColor: 'white',
+      nlButtonColor: "white",
       nlInputBg: blueGray[700],
       /* post*/
       archiveTitleBg: primary,

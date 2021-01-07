@@ -5,8 +5,6 @@ import { useQuery } from "react-query"
 import { Layout } from "@/components/Layout"
 
 const Blog = ({ postsData = {}, layoutData = {} }) => {
-  const { menusData, headerFooterData } = layoutData
-  console.log("header footer", layoutData)
   const { data } = useQuery(["posts"], requestAllPosts, {
     initialData: postsData,
     // refetchInterval: 1000,

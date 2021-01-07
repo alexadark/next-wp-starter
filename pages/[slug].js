@@ -1,21 +1,38 @@
-import { requestPage, requestAllPageSlugs } from "@/lib/api"
+import {
+  requestPage,
+  requestAllPageSlugs,
+  requestMenus,
+  requestHeaderFooter,
+} from "@/lib/api"
 import { useQuery } from "react-query"
+import { Layout } from "@/components/Layout"
 
-const Page = ({ pageData = {}, slug }) => {
+const Page = ({ pageData = {}, layoutData = {}, slug }) => {
+  console.log("page", layoutData)
   const { data } = useQuery(["page", slug], () => requestPage(slug), {
     initialData: pageData,
   })
 
-  return <h1 className="bg-blue-300">Page {data?.page?.title}</h1>
+  return (
+    <Layout layoutData={layoutData}>
+      <h1 className="bg-blue-300">Page {data?.page?.title}</h1>
+    </Layout>
+  )
 }
 
 export const getStaticProps = async ({ params }) => {
-  const data = await requestPage(params.slug)
+  const pageData = await requestPage(params.slug)
+  const menusData = await requestMenus()
+  const headerFooterData = await requestHeaderFooter()
 
   return {
     props: {
-      pageData: data,
+      pageData,
       slug: params.slug,
+      layoutData: {
+        menusData,
+        headerFooterData,
+      },
     },
     revalidate: 1,
   }
