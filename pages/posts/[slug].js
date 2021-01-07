@@ -4,6 +4,8 @@ import {
   requestMenus,
   requestHeaderFooter,
 } from "@/lib/api"
+import { PostEntry } from "@/components/post"
+
 import { useQuery } from "react-query"
 import { Layout } from "@/components/Layout"
 
@@ -12,7 +14,11 @@ const Post = ({ postData = {}, layoutData = {}, slug }) => {
     initialData: postData,
   })
 
-  return <Layout layoutData={layoutData}>{data?.post?.title}</Layout>
+  return (
+    <Layout layoutData={layoutData}>
+      <PostEntry post={data.post} location="single" />
+    </Layout>
+  )
 }
 
 export const getStaticProps = async ({ params }) => {
@@ -35,7 +41,7 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   const allPosts = await requestAllPostSlugs()
-  console.log("allPosts", allPosts.nodes)
+
   return {
     paths: allPosts?.nodes?.map((post) => `/${post?.slug}`) || [],
     fallback: true,

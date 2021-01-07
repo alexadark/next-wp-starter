@@ -3,6 +3,7 @@ import { requestAllPosts, requestMenus, requestHeaderFooter } from "@/lib/api"
 import Link from "next/link"
 import { useQuery } from "react-query"
 import { Layout } from "@/components/Layout"
+import { PostEntry } from "@/components/post"
 
 const Blog = ({ postsData = {}, layoutData = {} }) => {
   const { data } = useQuery(["posts"], requestAllPosts, {
@@ -15,9 +16,10 @@ const Blog = ({ postsData = {}, layoutData = {} }) => {
       <ul>
         {data?.posts?.nodes?.map((post) => (
           <li>
-            <Link href={`posts/${post?.slug}`}>
+            {/* <Link href={`posts/${post?.slug}`}>`
               <a>{post?.title}</a>
-            </Link>
+            </Link> */}
+            <PostEntry post={post} location="archive" />
           </li>
         ))}
       </ul>
