@@ -25,12 +25,12 @@ const heading = {
 
 const h1 = {
   ...heading,
-  fontSize: ["3xl", "4xl"],
+  // fontSize: ["3xl", "4xl"],
   // mt: 1,
 }
 const h2 = {
   ...heading,
-  fontSize: ["2xl", "3xl"],
+  // fontSize: ["2xl", "3xl"],
   // mt: 1,
 }
 

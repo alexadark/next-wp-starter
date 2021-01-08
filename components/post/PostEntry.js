@@ -1,4 +1,4 @@
-import { Box, Center, Divider } from "@chakra-ui/react"
+import { Box, Center, Divider, Heading } from "@chakra-ui/react"
 
 import {
   PostEntryTitle,
@@ -30,8 +30,7 @@ export const PostEntry = ({ post, location, ...props }) => {
         <PostEntryTitle
           location={location}
           post={post}
-          // fontSize={["2xl", "7xl"]}
-          className="mb-5 uppercase entry-title text-"
+          className="mb-5 text-2xl uppercase entry-title sm:text-3xl"
         />
         {/* <PostEntryInfo className="entry-info" post={post} /> */}
 
