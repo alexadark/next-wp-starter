@@ -6,14 +6,14 @@ export const ReadMoreButton = ({ location, post, ...props }) => (
   <>
     {location !== "single" && (
       <Flex justify="flex-end" {...props}>
-        <Button
-          as={Link}
+        <Link
           href={post.uri}
+          passHref
           className="read-more"
           aria-label="Read More from this post"
         >
-          <a>Read More</a>
-        </Button>
+          <Button>Read More</Button>
+        </Link>
       </Flex>
     )}
   </>

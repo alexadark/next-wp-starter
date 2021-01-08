@@ -49,7 +49,7 @@ export const PostEntry = ({ post, location, ...props }) => {
             data-sal-duration="1000"
             data-sal-easing="ease"
           /> */}
-          {/* <ReadMoreButton location={location} post={post} /> */}
+          <ReadMoreButton location={location} post={post} />
         </div>
         {/* {location === 'single' && (
           <>

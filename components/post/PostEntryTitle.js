@@ -1,4 +1,4 @@
-import { Heading, Link as ChakraLink, chakra } from "@chakra-ui/react"
+import { chakra } from "@chakra-ui/react"
 
 import Link from "next/link"
 
