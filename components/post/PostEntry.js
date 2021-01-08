@@ -1,11 +1,11 @@
-import { Box, Center, Divider, Heading } from "@chakra-ui/react"
+import { Box, Center, Divider } from "@chakra-ui/react"
 
 import {
   PostEntryTitle,
   // PostEntryMedia,
   PostEntryContent,
-  // PostEntryMeta,
-  // PostEntryInfo,
+  PostEntryMeta,
+  PostEntryInfo,
   ReadMoreButton,
   // PrevNextPostNavigation,
   // SocialShare,
@@ -32,7 +32,7 @@ export const PostEntry = ({ post, location, ...props }) => {
           post={post}
           className="mb-5 text-2xl uppercase entry-title sm:text-3xl"
         />
-        {/* <PostEntryInfo className="entry-info" post={post} /> */}
+        <PostEntryInfo post={post} />
 
         <PostEntryContent location={location} post={post} />
         {location !== "single" && (
@@ -42,13 +42,7 @@ export const PostEntry = ({ post, location, ...props }) => {
         )}
 
         <div className="entry-footer">
-          {/* <PostEntryMeta
-            className="entry-meta"
-            post={post}
-            data-sal="slide-up"
-            data-sal-duration="1000"
-            data-sal-easing="ease"
-          /> */}
+          <PostEntryMeta className="entry-meta" post={post} />
           <ReadMoreButton location={location} post={post} />
         </div>
         {/* {location === 'single' && (
