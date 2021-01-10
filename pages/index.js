@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useQuery } from "react-query"
 import { Layout } from "@/components/Layout"
 import { PostEntry } from "@/components/post"
+import { ArchiveContent } from "@/components/archive"
 
 const Blog = ({ postsData = {}, layoutData = {} }) => {
   const { data } = useQuery(["posts"], requestAllPosts, {
@@ -13,16 +14,7 @@ const Blog = ({ postsData = {}, layoutData = {} }) => {
 
   return (
     <Layout layoutData={layoutData}>
-      <ul>
-        {data?.posts?.nodes?.map((post) => (
-          <li>
-            {/* <Link href={`posts/${post?.slug}`}>`
-              <a>{post?.title}</a>
-            </Link> */}
-            <PostEntry post={post} location="archive" />
-          </li>
-        ))}
-      </ul>
+      <ArchiveContent posts={data?.posts?.nodes} />
     </Layout>
   )
 }
