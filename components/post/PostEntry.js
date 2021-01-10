@@ -2,7 +2,7 @@ import { Box, Center, Divider } from "@chakra-ui/react"
 
 import {
   PostEntryTitle,
-  // PostEntryMedia,
+  PostEntryMedia,
   PostEntryContent,
   PostEntryMeta,
   PostEntryInfo,
@@ -19,12 +19,7 @@ export const PostEntry = ({ post, location, ...props }) => {
   //   : null
   return (
     <Box as="article" mb={14} className="entry" {...props}>
-      {/* <PostEntryMedia
-        location={location}
-        post={post}
-        className="entry-media"
-        sx={{ ".gatsby-image-wrapper": { borderTopRadius: "lg" } }}
-      /> */}
+      <PostEntryMedia location={location} post={post} className="entry-media" />
 
       <Card>
         <PostEntryTitle
