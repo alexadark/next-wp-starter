@@ -2,7 +2,7 @@ import { chakra } from "@chakra-ui/react"
 
 import Link from "next/link"
 
-export const PostEntryTitle = ({ post, location, ...props }) => {
+export const PostEntryTitle = ({ post = {}, location, ...props }) => {
   const { title, uri } = post
 
   return (

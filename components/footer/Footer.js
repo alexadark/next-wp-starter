@@ -1,11 +1,7 @@
-import {
-  chakra,
-  useColorModeValue as colorMode,
-  HStack,
-} from "@chakra-ui/react"
+import { chakra, useColorModeValue as colorMode } from "@chakra-ui/react"
 import { SocialFollows } from "@/components/social"
 
-export const Footer = ({ footerData }) => {
+export const Footer = ({ footerData = {} }) => {
   const { copyrightText, socialLinks } = footerData
   return (
     <chakra.footer

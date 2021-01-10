@@ -2,9 +2,9 @@ import { Menu } from "@/components/menu"
 import { Box, chakra, useColorModeValue as colorMode } from "@chakra-ui/react"
 import { ColorSwitch } from "@/components/ColorSwitch"
 
-export const Header = ({ headerData }) => {
+export const Header = ({ headerData = {} }) => {
   const { menusData, getHeader } = headerData
-  const { siteTagLine, siteTitle } = getHeader
+  const { siteTagLine, siteTitle } = getHeader || {}
 
   return (
     <chakra.header

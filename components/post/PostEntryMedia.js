@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react"
 import Link from "next/link"
 import Image from "next/image"
 
-const WithLink = ({ post, location, children }) =>
+const WithLink = ({ post = {}, location, children }) =>
   location === "single" ? (
     children
   ) : (
@@ -11,8 +11,8 @@ const WithLink = ({ post, location, children }) =>
     </Link>
   )
 
-export const PostEntryMedia = ({ post, location, ...props }) => {
-  const img = post.featuredImage.node
+export const PostEntryMedia = ({ post = {}, location, ...props }) => {
+  const img = post?.featuredImage?.node
 
   return (
     <>

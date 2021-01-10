@@ -26,7 +26,7 @@ import {
   FaYoutube,
 } from "react-icons/fa"
 
-export const SocialFollows = ({ socialLinks = {}, ...props }) => {
+export const SocialFollows = ({ socialLinks = [], ...props }) => {
   const supportedIcons = [
     "behance",
     "codepen",

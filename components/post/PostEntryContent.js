@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react"
 import { gutenbergStyles } from "@/styles/gutenbergStyles"
 
-export const PostEntryContent = ({ post, location, ...props }) => {
+export const PostEntryContent = ({ post = {}, location, ...props }) => {
   const content = location === "single" ? post.content : post.excerpt
   const attributes = location === "single" ? { id: "content" } : {}
   return (
