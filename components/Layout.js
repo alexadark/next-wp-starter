@@ -35,12 +35,12 @@ export const Layout = ({
       }}
       {...props}
     >
-      <chakra.Headroom sx={{ "&>div": { zIndex: "2!important" } }}>
+      <Box as={Headroom} sx={{ "&>div": { zIndex: "2!important" } }}>
         <Header headerData={headerData} />
-      </chakra.Headroom>
-      <chakra.main flex={1} py={16}>
+      </Box>
+      <Box as="main" flex={1} py={16}>
         {children}
-      </chakra.main>
+      </Box>
       <Footer footerData={footerData} />
     </Flex>
   )
