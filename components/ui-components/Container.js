@@ -1,7 +1,7 @@
 import { useStyleConfig, Box } from "@chakra-ui/react"
 
-export const Card = ({ variant, sx, ...rest }) => {
-  const styles = useStyleConfig("Card", { variant })
+export const Container = ({ size, sx, ...rest }) => {
+  const styles = useStyleConfig("CenterContainer", { size })
   const customStyles = sx
   return <Box sx={{ ...styles, ...customStyles }} {...rest} />
 }
