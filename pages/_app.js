@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from "react-query/devtools"
 import "tailwindcss/tailwind.css"
 import theme from "@/styles/chakraTheme/theme"
 import "@/styles/globals.css"
-import "@/styles/wp-styles/styles.scss"
+// import "../styles/wp-styles/styles.scss"
 
 const queryClient = new QueryClient()
 
