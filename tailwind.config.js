@@ -1,6 +1,7 @@
-const config = require("./styles/themeConfig")
+const config = require("./styles/themeConfig");
 module.exports = {
-  purge: ["./components/**/*.js", "./pages/**/*.js"],
+  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  mode: "jit",
   darkMode: "class", // or 'media' or 'class'
   theme: {
     ...config,
@@ -13,4 +14,4 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-}
+};
